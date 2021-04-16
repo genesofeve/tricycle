@@ -100,12 +100,12 @@ plot_ccposition_den <- function(theta.v, color_var.v, color_name, palette.v = NU
     max.v <- max(all.df$y, strati.df$y)
     if (any(is.na(strati.df$color))) {
         strati.df$color <- fct_relevel(fct_explicit_na(strati.df$color, na_level = "NA"), "NA", after = Inf)
-        scale_color <- scale_color_manual(values = c(palette.v, "grey"), name = color_name, labels = paste0(levels(strati.df$color), "\nn=", table(strati.df$color)), limits = c(
+        scale_color <- scale_color_manual(values = c(palette.v, "grey"), name = color_name, labels = paste0(levels(strati.df$color), "\nn=", table(color_var.v)), limits = c(
             levels(strati.df$color),
             "NA"
         ))
     } else {
-        scale_color <- scale_color_manual(values = palette.v, name = color_name, labels = paste0(levels(strati.df$color), "\nn=", table(strati.df$color)), limits = levels(strati.df$color))
+        scale_color <- scale_color_manual(values = palette.v, name = color_name, labels = paste0(levels(strati.df$color), "\nn=", table(color_var.v)), limits = levels(strati.df$color))
     }
 
     if (type == "linear") {
